@@ -5,7 +5,7 @@ using System;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(Animator))]
-public class PlayerView : MonoBehaviour
+public class PlayerView : MonoBehaviour, IAttackAnimationHandler, IGroundedStateProvider, IMovementApplier
 {
     [SerializeField] private Transform _visualRoot;
     [SerializeField] private int _animationLayer = 0;
@@ -67,7 +67,7 @@ public class PlayerView : MonoBehaviour
 
     public void ApplyMovement(Vector3 motion)
     {
-        if (_controller != null)
+        if (_controller.enabled)
             _controller.Move(motion);
     }
 
@@ -85,7 +85,6 @@ public class PlayerView : MonoBehaviour
 
     public void SetRunningState(bool isRunning)
     {
-        if (_animator != null)
-            _animator.SetBool(_runningHash, isRunning);
+        _animator.SetBool(_runningHash, isRunning);
     }
 }
