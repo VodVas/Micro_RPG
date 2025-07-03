@@ -43,9 +43,6 @@ public class PlayerController : ITickable, IFixedTickable, IDisposable
         _movable.ApplyGravity(Time.fixedDeltaTime, isGrounded);
     }
 
-    //public void FixedTick() =>
-    //    _movable.ApplyGravity(Time.fixedDeltaTime, _view.IsGrounded);
-
     private void Move()
     {
         Vector2 input = _inputProvider.GetMovement();

@@ -1,100 +1,102 @@
-﻿//public class PlayerController1 : MonoBehaviour
-//{
-//    [SerializeField] private float _gravityMultiplier = 2f;
-//    [SerializeField] private float _moveSpeed = 5f;
-//    [SerializeField] private Rigidbody _rb;
+﻿////public class PlayerController1 : MonoBehaviour
+////{
+////    [SerializeField] private float _gravityMultiplier = 2f;
+////    [SerializeField] private float _moveSpeed = 5f;
+////    [SerializeField] private Rigidbody _rb;
 
-//    private string _horizontal = "Horizontal";
-//    private string _vertical = "Vertical";
+////    private string _horizontal = "Horizontal";
+////    private string _vertical = "Vertical";
 
-//    private void FixedUpdate()
-//    {
-//        HandleMovement();
-//        ApplyGravity();
-//    }
+////    private void FixedUpdate()
+////    {
+////        HandleMovement();
+////        ApplyGravity();
+////    }
 
-//    private void HandleMovement()
-//    {
-//        Vector2 input = new Vector2(Input.GetAxisRaw(_horizontal), Input.GetAxisRaw(_vertical));
-//        Vector3 targetVelocity = (transform.forward * input.y + transform.right * input.x).normalized * _moveSpeed;
+////    private void HandleMovement()
+////    {
+////        Vector2 input = new Vector2(Input.GetAxisRaw(_horizontal), Input.GetAxisRaw(_vertical));
+////        Vector3 targetVelocity = (transform.forward * input.y + transform.right * input.x).normalized * _moveSpeed;
 
-//        _rb.velocity = new Vector3(targetVelocity.x, _rb.velocity.y, targetVelocity.z);
-//    }
+////        _rb.velocity = new Vector3(targetVelocity.x, _rb.velocity.y, targetVelocity.z);
+////    }
 
-//    private void ApplyGravity()
-//    {
-//        if (!_rb.useGravity) return;
+////    private void ApplyGravity()
+////    {
+////        if (!_rb.useGravity) return;
 
-//        _rb.velocity += Physics.gravity * _gravityMultiplier * Time.fixedDeltaTime;
-//    }
-//}
+////        _rb.velocity += Physics.gravity * _gravityMultiplier * Time.fixedDeltaTime;
+////    }
+////}
 
-//public class PlayerMovement : MonoBehaviour
-//{
-//    [SerializeField] private float _moveSpeed = 5f;
-//    private const float _gravity = -9.81f;
-//    private float _verticalVelocity;
-//    private CharacterController _characterController;
+////public class PlayerMovement : MonoBehaviour
+////{
+////    [SerializeField] private float _moveSpeed = 5f;
+////    private const float _gravity = -9.81f;
+////    private float _verticalVelocity;
+////    private CharacterController _characterController;
 
-//    private void Awake() => _characterController = GetComponent<CharacterController>();
+////    private void Awake() => _characterController = GetComponent<CharacterController>();
 
-//    private void Update()
-//    {
-//        Vector3 moveDirection = GetInputDirection();
-//        ApplyGravity(ref moveDirection);
-//        Move(moveDirection);
-//    }
+////    private void Update()
+////    {
+////        Vector3 moveDirection = GetInputDirection();
+////        ApplyGravity(ref moveDirection);
+////        Move(moveDirection);
+////    }
 
-//    private void OnValidate() => _moveSpeed = Mathf.Max(0, _moveSpeed);
+////    private void OnValidate() => _moveSpeed = Mathf.Max(0, _moveSpeed);
 
-//    private Vector3 GetInputDirection()
-//    {
-//        float horizontal = Input.GetAxisRaw("Horizontal");
-//        float vertical = Input.GetAxisRaw("Vertical");
-//        return (transform.forward * vertical + transform.right * horizontal).normalized;
-//    }
+////    private Vector3 GetInputDirection()
+////    {
+////        float horizontal = Input.GetAxisRaw("Horizontal");
+////        float vertical = Input.GetAxisRaw("Vertical");
+////        return (transform.forward * vertical + transform.right * horizontal).normalized;
+////    }
 
-//    private void ApplyGravity(ref Vector3 direction)
-//    {
-//        _verticalVelocity = _characterController.isGrounded ? 0 : _verticalVelocity + _gravity * Time.deltaTime;
-//        direction.y = _verticalVelocity;
-//    }
+////    private void ApplyGravity(ref Vector3 direction)
+////    {
+////        _verticalVelocity = _characterController.isGrounded ? 0 : _verticalVelocity + _gravity * Time.deltaTime;
+////        direction.y = _verticalVelocity;
+////    }
 
-//    private void Move(Vector3 direction) => _characterController.Move(direction * _moveSpeed * Time.deltaTime);
-//}
+////    private void Move(Vector3 direction) => _characterController.Move(direction * _moveSpeed * Time.deltaTime);
+////}
 
-//public class CharacterAnimation : MonoBehaviour
-//{
-//    [SerializeField] private Animator _animator;
+////public class CharacterAnimation : MonoBehaviour
+////{
+////    [SerializeField] private Animator _animator;
 
-//    private void Update()
-//    {
-//        bool forwardPressed = Input.GetKey(KeyCode.W);
-//        bool runPressed = Input.GetKey(KeyCode.LeftShift);
+////    private void Update()
+////    {
+////        bool forwardPressed = Input.GetKey(KeyCode.W);
+////        bool runPressed = Input.GetKey(KeyCode.LeftShift);
 
-//        _animator.SetBool("isWalking", forwardPressed);
-//        _animator.SetBool("isRunning", forwardPressed && runPressed);
-//    }
-//}
+////        _animator.SetBool("isWalking", forwardPressed);
+////        _animator.SetBool("isRunning", forwardPressed && runPressed);
+////    }
+////}
 
 
-//public class CharacterAnimation1 : MonoBehaviour
-//{
-//    [SerializeField] private Animator _animator;
+////public class CharacterAnimation1 : MonoBehaviour
+////{
+////    [SerializeField] private Animator _animator;
 
-//    private int _isWalking => Animator.StringToHash("isWalking");
-//    private int _isRunning => Animator.StringToHash("isRunning");
+////    private int _isWalking => Animator.StringToHash("isWalking");
+////    private int _isRunning => Animator.StringToHash("isRunning");
 
-//    private void Update()
-//    {
-//        bool forwardPressed = Input.GetKey(KeyCode.W);
-//        bool runPressed = Input.GetKey(KeyCode.LeftShift);
+////    private void Update()
+////    {
+////        bool forwardPressed = Input.GetKey(KeyCode.W);
+////        bool runPressed = Input.GetKey(KeyCode.LeftShift);
 
-//        _animator.SetBool(_isWalking, forwardPressed);
-//        _animator.SetBool(_isRunning, forwardPressed && runPressed);
-//    }
-//}
+////        _animator.SetBool(_isWalking, forwardPressed);
+////        _animator.SetBool(_isRunning, forwardPressed && runPressed);
+////    }
+////}
 
+
+//using UnityEngine;
 
 //public class ThirdPersonMovement : MonoBehaviour
 //{
@@ -170,8 +172,6 @@
 
 //    private void UpdateCharacterRotation()
 //    {
-//        float horizontalRotation = Input.GetAxis("Horizontal");
-
-//        _visualRoot.Rotate(Vector3.up * horizontalRotation * _rotationSpeed * Time.deltaTime, Space.Self);
+//        _visualRoot.Rotate(Vector3.up * _horizontalInput * _rotationSpeed * Time.deltaTime, Space.Self);
 //    }
 //}

@@ -102,6 +102,17 @@
                 },
                 {
                     "name": "",
+                    "id": "746c7470-b37e-4915-a81c-c030a5ce57aa",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "63dc05e2-05a6-4171-bf05-4b0051adb3e0",
                     "path": "<Keyboard>/space",
                     "interactions": "Press",

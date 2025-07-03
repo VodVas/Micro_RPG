@@ -9,7 +9,7 @@ public class PlayerModel : IMovable, IAttacker
     public Quaternion TargetRotation => _movement.TargetRotation;
     public bool IsRunning => _movement.IsRunning;
 
-    public PlayerModel(PlayerConfig config, MovementSystem movement, AttackSystem attack)
+    public PlayerModel(MovementSystem movement, AttackSystem attack)
     {
         _movement = movement;
         _attack = attack;
